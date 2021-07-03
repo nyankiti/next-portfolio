@@ -7,9 +7,11 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { services } from '../../data'
 
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+const Service = (req: NextApiRequest, res: NextApiResponse) => {
    //  ここにbackendからデータを取得するロジックを書く
   console.log('API', services)
 
   res.status(200).json({ services })
 }
+
+export default Service

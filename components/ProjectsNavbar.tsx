@@ -7,6 +7,7 @@ export const NavItem: FunctionComponent<{
   active: string;
 }> = ({ value, handlerFilterCategory, active }) => {
   let className = "capitalize cursor-pointer hover:text-green";
+  // 選択されてい場合は色を変更する
   if (active === value) className += " text-green";
 
   return (
@@ -22,6 +23,7 @@ const ProjectsNavbar: FunctionComponent<{
 }> = (props) => {
   return (
     <div className="flex px-3 py-2 space-x-3 overflow-x-auto list-none">
+      {/* value, handleFilterCategory, active の3つのpropをそのまま渡してる */}
       <NavItem value="all" {...props} />
       <NavItem value="react" {...props} />
       <NavItem value="mongo" {...props} />

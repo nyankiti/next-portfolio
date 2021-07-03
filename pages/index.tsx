@@ -10,13 +10,26 @@ import {
 import ServiceCard from "../components/ServiceCard";
 import { services } from "../data";
 import { Service } from "../types";
+import { motion } from "framer-motion";
+import Head from "next/head";
+import { fadeInUp, stagger, routeAnimation } from "../animations";
 
 // pageディレクトリ配下にあるこのfunctionはNextPageというtypeを割り当てる事ができるl
-const About: NextPage = () => {
+const About = ({ BASE_URL }) => {
   // console.log(services);
+  console.log(BASE_URL);
 
   return (
-    <div className="flex flex-col flex-grow px-6 pt-1 ">
+    <motion.div 
+      className="flex flex-col flex-grow px-6 pt-1 " 
+      variants={routeAnimation} 
+      initial='initial' 
+      animate='animate'
+      exit='exit'
+    >
+      <Head>
+        <title>早田健太郎</title>
+      </Head>
       <h6 className="my-3 text-base font-medium">
         I am currently pursuing B.Tech Degree(Final Year) in Computer Science
         Engineering from Academy of Technology. I have 3+ years of experience in
@@ -31,19 +44,25 @@ const About: NextPage = () => {
           What I am doing
         </h4>
 
-        <div className="grid gap-6 my-3 md:grid-cols-2">
+        <motion.div 
+          variants={stagger}
+          initial='initial'
+          animate='animate'
+          className="grid gap-6 my-3 md:grid-cols-2"
+        >
           {/* children's initial and animate property should be same as the parent during a stagger effect  */}
           {services.map((service) => (
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="col-span-2 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 md:col-span-1 "
               key={service.title}
             >
               <ServiceCard service={service} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -57,6 +76,14 @@ const About: NextPage = () => {
 //    console.log(data)
 //    return { props: { services: data.services } }
 // }
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const BASE_URL = process.env.VERCEL_URL;
+  // const res = await fetch(`${BASE_URL}api/services`);
+  // const data = await res.json();
+  return { props: { BASE_URL: BASE_URL } };
+};
 
 //!called only during the build of the project
 //? make sure the server(localhost:3000)[this will receive the request during build] is running on a terminal during the build
