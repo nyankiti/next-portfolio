@@ -28,7 +28,7 @@ const About = ({ BASE_URL }) => {
       exit='exit'
     >
       <Head>
-        <title>早田健太郎</title>
+        <title>resume</title>
       </Head>
       <h6 className="my-3 text-base font-medium">
         I am currently pursuing B.Tech Degree(Final Year) in Computer Science

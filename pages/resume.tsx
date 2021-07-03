@@ -3,6 +3,7 @@ import Bar from "../components/Bar";
 import { languages, tools } from "../data";
 import { motion } from "framer-motion";
 import { fadeInUp, routeAnimation } from "../animations";
+import Head from "next/head";
 
 const Resume: NextPage = () => {
 
@@ -14,6 +15,9 @@ const Resume: NextPage = () => {
       exit="exit"
       className="px-6 py-2"
     >
+      <Head>
+        <title>早田健太郎</title>
+      </Head>
     
       <div className="grid gap-6 md:grid-cols-2">
         {/* 学歴、職歴など */}
