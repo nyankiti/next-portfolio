@@ -1,15 +1,15 @@
 import { FunctionComponent, useState } from "react";
 import { AiFillGithub, AiFillProject } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
-import { IProject } from "../types";
+import { IProject } from "types/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { fadeInUp, stagger } from "../animations";
+import { fadeInUp, stagger } from "utils/animations";
 // next.jsが用意するimageコンポーネントは画面のサイズに合わせてresponsiveにimageを最適化して取ってくれる
 
 const ProjectCard: FunctionComponent<{
   project: IProject;
-  showDetail: null|number;
+  showDetail: null | number;
   setShowDetail: (id: null | number) => void;
 }> = ({
   project: {
@@ -24,9 +24,7 @@ const ProjectCard: FunctionComponent<{
   },
   showDetail,
   setShowDetail,
-  
 }) => {
-
   return (
     <div>
       <Image
@@ -48,22 +46,24 @@ const ProjectCard: FunctionComponent<{
 
       {showDetail === id && (
         <div className="absolute top-0 left-0 z-10 grid w-full h-auto p-2 text-black bg-gray-100 rounded-lg md:p-10 md:grid-cols-2 gap-x-12 dark:text-white dark:bg-dark-100">
-          <motion.div
-            variants={stagger}
-            initial='initial'
-            animate='animate'
-          >
+          <motion.div variants={stagger} initial="initial" animate="animate">
             {/* <img src={image_path} alt={name} /> */}
-            <motion.div variants={fadeInUp} className='border-4 border-gray-100'>
+            <motion.div
+              variants={fadeInUp}
+              className="border-4 border-gray-100"
+            >
               <Image
                 src={image_path}
                 alt={name}
                 layout="responsive"
                 height="150"
                 width="300"
-                />
+              />
             </motion.div>
-            <motion.div variants={fadeInUp} className="flex justify-center my-4 space-x-3">
+            <motion.div
+              variants={fadeInUp}
+              className="flex justify-center my-4 space-x-3"
+            >
               <a
                 href={github_url}
                 className="flex items-center px-4 py-2 space-x-3 text-lg bg-gray-200 dark:bg-dark-200"
@@ -79,11 +79,21 @@ const ProjectCard: FunctionComponent<{
             </motion.div>
           </motion.div>
 
-          <motion.div variants={stagger} initial='initial' animate='animate'>
-            <motion.h2 variants={fadeInUp} className="mb-3 text-xl font-medium md:text-2xl">{name}</motion.h2>
-            <motion.h3 variants={fadeInUp} className="mb-3 font-medium">{description}</motion.h3>
+          <motion.div variants={stagger} initial="initial" animate="animate">
+            <motion.h2
+              variants={fadeInUp}
+              className="mb-3 text-xl font-medium md:text-2xl"
+            >
+              {name}
+            </motion.h2>
+            <motion.h3 variants={fadeInUp} className="mb-3 font-medium">
+              {description}
+            </motion.h3>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap mt-5 space-x-2 text-sm tracking-wider">
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-wrap mt-5 space-x-2 text-sm tracking-wider"
+            >
               {key_techs.map((tech) => (
                 <span
                   key={tech}

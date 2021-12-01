@@ -1,27 +1,27 @@
 import { FunctionComponent } from "react";
 import { motion } from "framer-motion";
-import { Skill } from "../types";
+import { Skill } from "../../types/types";
 
 const Bar: FunctionComponent<{ value: Skill }> = ({
   value: { Icon, level, name },
 }) => {
   // スキルレベルに%をつける
   const bar_width = `${level}%`;
-  
+
   const variants = {
     initial: {
-      width: 0
+      width: 0,
     },
     animate: {
-      width:bar_width,
+      width: bar_width,
       transition: {
         duration: 0.4,
-        type: 'spring',
+        type: "spring",
         damping: 10,
-        stiffness: 100
-      }
-    }
-  }
+        stiffness: 100,
+      },
+    },
+  };
   return (
     <div className="my-2 text-white bg-gray-300 rounded-full dark:bg-dark-300 dark:bg-black-500">
       <motion.div
@@ -30,8 +30,8 @@ const Bar: FunctionComponent<{ value: Skill }> = ({
           width: bar_width,
         }}
         variants={variants}
-        initial='initial'
-        animate='animate'
+        initial="initial"
+        animate="animate"
       >
         <Icon className="mr-3" /> {name}
       </motion.div>

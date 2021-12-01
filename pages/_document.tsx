@@ -14,15 +14,16 @@ class MyDocument extends Document {
           />
           {/* 以下にメタデータを加えることでSEO対策 */}
           <meta
+            // 検索した際に出てくるページの説明文
             name="description"
-            content="MERN stack developer looking for a job"
+            content=""
           />
-          <meta
-            name="keywords"
-            content="Full Stack Web Developer, Freelancer ,MERN developer"
-          />
+          <meta name="keywords" content="" />
+          {/* クローラーに見つからないためのコード 開発中は残しておく */}
+          <meta name="robots" content="noindex" />
         </Head>
-        <body className="bg-fixed bg-gradient-to-r from-green to-blue-500 dark:from-dark-500 dark:to-dark-700 dark:text-white">
+        {/* <body className="bg-fixed bg-gradient-to-r from-green to-blue-500 dark:from-dark-500 dark:to-dark-700 dark:text-white"> */}
+        <body className="bg-fixed bg-gray-300 dark:from-dark-500 dark:to-dark-700 dark:text-white">
           <Main />
           <NextScript />
         </body>
