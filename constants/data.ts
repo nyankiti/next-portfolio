@@ -5,7 +5,7 @@ import { RiComputerLine } from "react-icons/ri";
 import { FaServer } from "react-icons/fa";
 import { AiOutlineAntDesign, AiOutlineApi } from "react-icons/ai";
 import { MdDeveloperMode } from "react-icons/md";
-import { IProject, Service, Skill } from "types/types";
+import { IProject, Service, Skill } from "types/portfolio";
 
 import { BsCircleFill } from "react-icons/bs";
 

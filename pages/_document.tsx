@@ -8,6 +8,16 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="shortcut icon" href="/icon-48x48.png" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap"
+            rel="stylesheet"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
             rel="stylesheet"
@@ -23,7 +33,10 @@ class MyDocument extends Document {
           <meta name="robots" content="noindex" />
         </Head>
         {/* <body className="bg-fixed bg-gradient-to-r from-green to-blue-500 dark:from-dark-500 dark:to-dark-700 dark:text-white"> */}
-        <body className="bg-fixed bg-gray-300 dark:from-dark-500 dark:to-dark-700 dark:text-white">
+        <body
+          className="bg-fixed bg-gray-300 dark:from-dark-500 dark:to-dark-700 dark:text-white"
+          style={{ fontFamily: "Kosugi Maru" }}
+        >
           <Main />
           <NextScript />
         </body>

@@ -11,7 +11,7 @@ import { projects as projectsData } from "constants/data";
 /* utils */
 import { fadeInUp, stagger, routeAnimation } from "utils/animations";
 /* types */
-import { Category } from "types/types";
+import { Category } from "types/portfolio";
 
 const Projects: NextPage = () => {
   const [projects, setProjects] = useState(projectsData);

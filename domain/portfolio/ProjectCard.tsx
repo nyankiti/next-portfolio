@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import { AiFillGithub, AiFillProject } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
-import { IProject } from "types/types";
+import { IProject } from "types/portfolio";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeInUp, stagger } from "utils/animations";

@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { motion } from "framer-motion";
-import { Skill } from "../../types/types";
+import { Skill } from "../../types/portfolio";
 
 const Bar: FunctionComponent<{ value: Skill }> = ({
   value: { Icon, level, name },
