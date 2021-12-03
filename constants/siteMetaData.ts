@@ -1,7 +1,7 @@
 export const siteMetadata = {
   title: "Soda Kentaro Portfolio Project",
   author: "Soda Kentaro",
-  headerTitle: "気ままな開発者の悟り事",
+  headerTitle: "悟り事",
   description: "日々の開発のアウトプットブログ",
   language: "jp",
   siteUrl: "https://next-portfolio-nyankiti.vercel.app",

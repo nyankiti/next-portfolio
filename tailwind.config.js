@@ -29,5 +29,8 @@ module.exports = {
   variants: {
     extend: {},
   },
+  corePlugins: {
+     boxShadow: true,
+  },
   plugins: [],
 }

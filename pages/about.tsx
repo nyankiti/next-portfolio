@@ -32,17 +32,18 @@ const about = () => {
                   alt=""
                   aria-hidden="true"
                   role="presentation"
-                  src="/pago_chan.jpg"
+                  className="rounded-md"
+                  src="/images/self_portrait.jpg"
                   height={300}
                   width={300}
                 />
               </div>
             </div>
             <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
-              森はるか
+              そうけん
             </h3>
             <div className="text-gray-500 dark:text-gray-400">
-              Student of Osaka University
+              Student of Osaka City University
             </div>
 
             <div className="flex pt-6 space-x-3">
@@ -50,7 +51,7 @@ const about = () => {
                 className="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:address@yoursite.com"
+                href="mailto:nyankiti20000824@gmail.com"
               >
                 <span className="sr-only">mail</span>
                 <svg
@@ -66,7 +67,7 @@ const about = () => {
                 className="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://github.com"
+                href="https://github.com/nyankiti"
               >
                 <span className="sr-only">github</span>
                 <svg
@@ -83,13 +84,14 @@ const about = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com"
               >
-                <span className="sr-only">linkedin</span>
+                <span className="sr-only">portfolio</span>
                 <svg
-                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
                   className="fill-current text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 h-8 w-8"
                 >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path d="M12 12c1.65 0 3-1.35 3-3s-1.35-3-3-3-3 1.35-3 3 1.35 3 3 3zm0-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm6 8.58c0-2.5-3.97-3.58-6-3.58s-6 1.08-6 3.58V18h12v-1.42zM8.48 16c.74-.51 2.23-1 3.52-1s2.78.49 3.52 1H8.48zM19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z" />
                 </svg>
               </a>
               <a

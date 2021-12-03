@@ -26,15 +26,15 @@ export default function Tags({ tags, count }) {
         <SubTitle text="Tags" />
         <div className="flex flex-wrap max-w-lg">
           {Object.keys(tags).length === 0 && "No tags found."}
-          {tags.map((t) => {
+          {tags.map((tag: string) => {
             return (
-              <div key={t} className="mt-2 mb-2 mr-5">
-                <Tag text={t} />
+              <div key={tag} className="mt-2 mb-2 mr-5">
+                <Tag text={tag} />
                 <Link
-                  href={`/tags/${kebabCase(t)}`}
+                  href={`/tags/${kebabCase(tag)}`}
                   className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
                 >
-                  {` (${count[t]})`}
+                  {` (${count[tag]})`}
                 </Link>
               </div>
             );

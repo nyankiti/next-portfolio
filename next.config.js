@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['kentaro.netlify.app'],
+    domains: ['kentaro.netlify.app', 'images.ctfassets.net'],
   },
 };

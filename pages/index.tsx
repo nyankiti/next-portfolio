@@ -39,7 +39,7 @@ export const Home = ({ posts }: Props) => {
             Latest
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            森はるかブログ
+            技術ブログ
           </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
