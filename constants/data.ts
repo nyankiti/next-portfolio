@@ -5,210 +5,109 @@ import { RiComputerLine } from "react-icons/ri";
 import { FaServer } from "react-icons/fa";
 import { AiOutlineAntDesign, AiOutlineApi } from "react-icons/ai";
 import { MdDeveloperMode } from "react-icons/md";
-import { IProject, Service, Skill } from "types/portfolio";
+import { IProject, Skill } from "types/portfolio";
 
 import { BsCircleFill } from "react-icons/bs";
-
-export const services: Service[] = [
-  {
-    Icon: RiComputerLine,
-    title: "Frontend Development",
-    about:
-      "I can build a beautiful and scalable SPA using <b> HTML</b>,<b>CSS</b>   and <b>React.js</b> ",
-  },
-  {
-    Icon: FaServer,
-    title: "Backend  Development",
-    about:
-      "handle database, server, api using <b>Express </b> & other popular frameworks",
-  },
-  {
-    Icon: AiOutlineApi,
-    title: "API Development",
-    about:
-      "I can develop robust  REST API using <b>django-rest-api</b>  & <b>Node API</b> ",
-  },
-  {
-    Icon: MdDeveloperMode,
-    title: "Competitive Coder",
-    about: "a daily problem solver in <b>HackerRank</b>  and <b>Leet Code</b> ",
-  },
-  {
-    Icon: AiOutlineAntDesign,
-    title: "UI/UX designer",
-    about:
-      "stunning user interface designer using <b>Figma</b>  and  <b>Framer</b> ",
-  },
-  {
-    Icon: RiComputerLine,
-    title: "Whatever",
-    about:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis minima autem!",
-  },
-];
 
 export const languages: Skill[] = [
   {
     Icon: BsCircleFill,
-    name: "Python",
-    level: "45",
-  },
-  {
-    Icon: BsCircleFill,
-    name: "Java Script",
-    level: "60",
-  },
-  {
-    Icon: BsCircleFill,
-    name: "React Native",
-    level: "80",
+    name: "Type Script",
+    level: "75",
   },
   {
     Icon: BsCircleFill,
     name: "React",
-    level: "70",
+    level: "65",
   },
   {
     Icon: BsCircleFill,
-    name: "Django",
-    level: "80",
+    name: "PHP",
+    level: "65",
   },
   {
     Icon: BsCircleFill,
-    name: "Bootstrap",
-    level: "80",
+    name: "HTML & CSS",
+    level: "50",
+  },
+  {
+    Icon: BsCircleFill,
+    name: "Python",
+    level: "40",
+  },
+  {
+    Icon: BsCircleFill,
+    name: "Go",
+    level: "30",
+  },
+  {
+    Icon: BsCircleFill,
+    name: "Java",
+    level: "30",
   },
 ];
 
 export const tools: Skill[] = [
   {
     Icon: BsCircleFill,
-    name: "Figma",
-    level: "85",
-  },
-  {
-    Icon: BsCircleFill,
-    name: "Photoshop",
-    level: "45",
-  },
-  {
-    Icon: BsCircleFill,
-    name: "Illustrator",
+    name: "Git",
     level: "60",
   },
   {
     Icon: BsCircleFill,
-    name: "Framer",
+    name: "Laravel",
+    level: "60",
+  },
+  {
+    Icon: BsCircleFill,
+    name: "Next.js",
+    level: "65",
+  },
+  {
+    Icon: BsCircleFill,
+    name: "firebase",
     level: "45",
+  },
+  {
+    Icon: BsCircleFill,
+    name: "contentful",
+    level: "65",
   },
 ];
 
 export const projects: IProject[] = [
   {
     id: 1,
-    name: "COVID Tracker",
+    name: "My Blog and Portfolio",
     description:
-      "This app shows a statistical view about corona virus over the world",
+      "ブログとポートフォリオ(本プロジェクト)を Next.js, contentful, vercel を用いて開発しております",
     image_path: "/images/cat.jpg",
-    deployed_url: "https://covid-19-tracker-by-sumit.web.app/",
-    github_url: "https://github.com/Dey-Sumit/covid-19-tracker",
+    deployed_url: "https://next-portfolio-nine-chi.vercel.app/",
+    github_url: "https://github.com/nyankiti/next-portfolio",
     category: ["react"],
-    key_techs: ["React", "Chart.js", "Material UI"],
+    key_techs: ["React", "Next.js", "Tailwind", "contentful", "typescript"],
   },
   {
     id: 2,
-    name: "Algorithm Visualizer",
-    image_path: "/images/cat.jpg",
-    deployed_url: "https://visual-algorithm.web.app/",
-    github_url: "https://github.com/Dey-Sumit/algorithm-visualizer",
+    name: "Gift 自習室 アプリ",
+    image_path: "/images/gift-app.png",
+    deployed_url: "",
+    android_url:
+      "https://play.google.com/store/apps/details?id=com.gift.studyroom",
+    ios_url: "https://apps.apple.com/jp/app/gift自習室/id1587162918",
     category: ["react"],
-    description:
-      "An web app which shows how an algorithm (path finding or sorting) works with cool animation",
-    key_techs: ["React", "firebase", "Framer Motion"],
+    description: "奈良県王寺町にある「Gift自習室」専用アプリ",
+    key_techs: ["React Native", "firebase", "Expo"],
   },
 
   {
     id: 3,
-    name: "Dev Talks",
-    image_path: "/images/cat.jpg",
-    deployed_url: "https://dev-talks.herokuapp.com/",
-    github_url: "https://github.com/Dey-Sumit/Dev-talks",
-    category: ["node", "mongo", "react"],
-    description:
-      "Social Media app for developers who can share project,create posts,etc...",
-    key_techs: [
-      "React",
-      "Redux",
-      "Node",
-      "Express",
-      "Mongo",
-      "REST API",
-      "Bootstrap",
-    ],
-  },
-
-  {
-    id: 4,
-    name: "Realtime Chat App",
-    image_path: "/images/cat.jpg",
-    deployed_url: "https://sumit-chat.netlify.app/",
-    github_url: "https://github.com/Dey-Sumit/chat-app-socket.io-react-node",
-    category: ["node", "react"],
-    description:
-      "Basic Realtime Chat App where one can create a room can talk to each other",
-    key_techs: ["React", "Node", "Express", "Socket", "Bootstrap"],
-  },
-
-  {
-    id: 5,
-    name: "Tweeter Clone",
-    image_path: "/images/cat.jpg",
-    deployed_url: "http://sumaxtweetme.pythonanywhere.com/",
-    github_url: "https://github.com/Dey-Sumit/tweetme",
-    category: ["django", "react"],
-    description:
-      "First Django Project :) | Typical Social Media App where one can post,like ,comment etc",
-    key_techs: ["React", "Django", "Django REST API"],
-  },
-
-  {
-    id: 6,
-    name: "Color Classification using tf.js",
-    image_path: "/images/cat.jpg",
-    deployed_url: "!#",
-    github_url: "https://github.com/Dey-Sumit/color-classification",
-    category: ["express"],
-    description:
-      "Tried ML with JS :) | this app classifies a color using CNN algorithm in browser",
-    key_techs: ["Express", "TensorFlow.js", "Vanilla js"],
-  },
-  {
-    id: 7,
-    name: "YouTube using YouTube ",
-    image_path: "/images/cat.jpg",
-    deployed_url: "https://not-utube.web.app/",
-    github_url: "https://github.com/Dey-Sumit/youtube-clone-tutorial-up",
-    category: ["express"],
-    description:
-      'Full(almost) Functional YouTube replica where one can login with his/her youtube account to enjoy "not-YouTube".User can like a video,comment on a video & Much More ',
-    key_techs: [
-      "React",
-      "Redux",
-      "Firebase Auth",
-      "YouTube API",
-      "Sass",
-      "Bootstrap",
-    ],
-  },
-  {
-    id: 8,
-    name: "Football App",
-    image_path: "/images/cat.jpg",
-    deployed_url: "https://o-my-goal.web.app/",
-    github_url: "https://github.com/Dey-Sumit/football-app",
+    name: "ケーキ工房 森のおくりもの ホームページ",
+    image_path: "/images/morinookurimono.png",
+    deployed_url: "https://www.cake-morioku.com/",
     category: ["react"],
     description:
-      "o my goal replica where an user can keep an eye on his favorite club.This app will keep providing \n all the statistics of that club.all the fans can also chat ",
-    key_techs: ["React", "Redux", "Firebase Auth", "API", "Sass", "Bootstrap"],
+      "奈良県大和高田市のケーキ屋さん 「ケーキ工房 森のおくりもの」 公式ホームページ。",
+    key_techs: ["React", "Next.js", "contentful"],
   },
 ];

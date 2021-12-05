@@ -26,9 +26,7 @@ const ProjectsNavbar: FunctionComponent<{
       {/* value, handleFilterCategory, active の3つのpropをそのまま渡してる */}
       <NavItem value="all" {...props} />
       <NavItem value="react" {...props} />
-      <NavItem value="mongo" {...props} />
-      <NavItem value="django" {...props} />
-      <NavItem value="node" {...props} />
+      <NavItem value="laravel" {...props} />
     </div>
   );
 };
