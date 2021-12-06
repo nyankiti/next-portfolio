@@ -4,6 +4,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import formatDate from "utils/formatDate";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+// import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
 /* components */
 import Layout from "domain/blog/Layout";
 import Skeleton from "domain/blog/Skeleton";
@@ -83,7 +87,7 @@ const PostDetail: React.FC<Props> = ({ post }) => {
   // ISRによるリビルド中に表示するページ
   if (!post) return <Skeleton />;
 
-  const { mediaImage, title, tags, contents } = post.fields;
+  const { mediaImage, title, tags, contents, markdown } = post.fields;
   const date = Date.parse(post.sys.updatedAt);
 
   return (
@@ -122,7 +126,47 @@ const PostDetail: React.FC<Props> = ({ post }) => {
           </div>
 
           <div className="method">
-            <div>{documentToReactComponents(contents)}</div>
+            <div>
+              {markdown ? (
+                <ReactMarkdown
+                  components={{
+                    p: function renderImage({ node, children }) {
+                      if ((node.children[0] as any).tagName === "img") {
+                        const image: any = node.children[0];
+                        return (
+                          <div className="flex justify-center">
+                            <img
+                              src={image.properties.src}
+                              alt={image.properties.alt}
+                              // width="600"
+                              // height="300"
+                            />
+                          </div>
+                        );
+                      }
+                      // Return default child if it's not an image
+                      return <p>{children}</p>;
+                    },
+                    code: function renderCode({ className, children }) {
+                      // Removing "language-" because React-Markdown already added "language-"
+                      const language = className.replace("language-", "");
+                      return (
+                        <SyntaxHighlighter
+                          style={materialDark}
+                          language={language}
+                        >
+                          {children[0]}
+                        </SyntaxHighlighter>
+                      );
+                    },
+                  }}
+                >
+                  {markdown}
+                </ReactMarkdown>
+              ) : (
+                <div>{documentToReactComponents(contents as any)}</div>
+              )}
+            </div>
           </div>
         </div>
       </article>

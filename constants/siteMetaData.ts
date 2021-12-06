@@ -5,7 +5,7 @@ export const siteMetadata = {
   description: "日々の開発のアウトプットブログ",
   language: "jp",
   siteUrl: "https://next-portfolio-nyankiti.vercel.app",
-  siteRepo: "https://github.com/nyankiti/Haruka-blog",
+  siteRepo: "https://github.com/nyankiti/next-portfolio",
   siteLogo: "",
   image: "/static/images/self_portrait.jpg",
   email: "nyankiti20000824@gmial.com",

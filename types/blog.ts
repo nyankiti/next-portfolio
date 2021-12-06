@@ -1,6 +1,9 @@
+import { EntryFields } from "contentful";
+
 export interface Post {
   fields: {
-    contents: any;
+    contents?: EntryFields.RichText;
+    markdown?: string;
     tags?: string[];
     slug: string;
     thumbnail: ContentfulImageObject;
