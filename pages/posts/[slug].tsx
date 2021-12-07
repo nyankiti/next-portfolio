@@ -6,7 +6,7 @@ import formatDate from "utils/formatDate";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-// import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 /* components */
 import Layout from "domain/blog/Layout";
@@ -108,8 +108,8 @@ const PostDetail: React.FC<Props> = ({ post }) => {
             </div>
           </div>
         </header>
-        <div className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 ">
-          <div className="banner">
+        <div className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700">
+          <div className="banner text-center">
             <Image
               src={"https:" + mediaImage.fields.file.url}
               width={mediaImage.fields.file.details.image.width}
@@ -129,6 +129,7 @@ const PostDetail: React.FC<Props> = ({ post }) => {
             <div>
               {markdown ? (
                 <ReactMarkdown
+                  plugins={[gfm]}
                   components={{
                     p: function renderImage({ node, children }) {
                       if ((node.children[0] as any).tagName === "img") {
@@ -159,6 +160,79 @@ const PostDetail: React.FC<Props> = ({ post }) => {
                         </SyntaxHighlighter>
                       );
                     },
+                    h1: function renderH1({ children }) {
+                      return (
+                        <>
+                          <h1 className="text-4xl font-extrabold py-3">
+                            {children}
+                          </h1>
+                          <hr className="py-1" />
+                        </>
+                      );
+                    },
+                    h2: function renderH2({ children }) {
+                      return (
+                        <>
+                          <h2 className="text-3xl font-bold py-3">
+                            {children}
+                          </h2>
+                          <hr className="py-1" />
+                        </>
+                      );
+                    },
+                    h3: function renderH3({ children }) {
+                      return (
+                        <>
+                          <h3 className="text-2xl font-bold py-2">
+                            {children}
+                          </h3>
+                          <hr className="py-1" />
+                        </>
+                      );
+                    },
+                    h4: function renderH4({ children }) {
+                      return (
+                        <>
+                          <h4 className="text-xl font-semibold py-2">
+                            {children}
+                          </h4>
+                          <hr className="py-1" />
+                        </>
+                      );
+                    },
+                    h5: function renderH5({ children }) {
+                      return (
+                        <>
+                          <h4 className="text-lg font-semibold py-2">
+                            {children}
+                          </h4>
+                          <hr className="py-1" />
+                        </>
+                      );
+                    },
+                    h6: function renderH6({ children }) {
+                      return (
+                        <>
+                          <h4 className="font-semibold py-1">{children}</h4>
+                          <hr className="py-1" />
+                        </>
+                      );
+                    },
+                    a: function renderAnchor({ children }) {
+                      return (
+                        <a className="text-blue-400 underline cursor-pointer">
+                          {children}
+                        </a>
+                      );
+                    },
+                    // blockquote: function renderBlockQuote({
+                    //   className,
+                    //   children,
+                    // }) {
+                    //   console.log(children);
+                    //   return <div className="bg-gray-500">{children}</div>;
+                    // },
+                    // tableとlistのスタイルはglobals.cssに書いた
                   }}
                 >
                   {markdown}

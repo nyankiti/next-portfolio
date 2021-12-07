@@ -31,6 +31,13 @@ class MyDocument extends Document {
           <meta name="keywords" content="" />
           {/* クローラーに見つからないためのコード 開発中は残しておく */}
           <meta name="robots" content="noindex" />
+
+          <head>
+            <link
+              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              rel="stylesheet"
+            />
+          </head>
         </Head>
         {/* <body className="bg-fixed bg-gradient-to-r from-green to-blue-500 dark:from-dark-500 dark:to-dark-700 dark:text-white"> */}
         <body
