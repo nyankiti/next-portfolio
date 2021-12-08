@@ -7,6 +7,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import gfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
 /* components */
 import Layout from "domain/blog/Layout";
@@ -130,6 +131,7 @@ const PostDetail: React.FC<Props> = ({ post }) => {
               {markdown ? (
                 <ReactMarkdown
                   plugins={[gfm]}
+                  rehypePlugins={[rehypeRaw]}
                   components={{
                     p: function renderImage({ node, children }) {
                       if ((node.children[0] as any).tagName === "img") {

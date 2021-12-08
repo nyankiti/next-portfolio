@@ -40,7 +40,7 @@ const Sidebar = () => {
 
       {/* Socials */}
       <div className="flex justify-around w-9/12 mx-auto my-5 text-green md:w-full ">
-        <a href="https://www.instagram.com/nyankiti" aria-label="instagram">
+        <a href="https://www.github.com/nyankiti" aria-label="instagram">
           <AiFillGithub className="w-8 h-8 cursor-pointer" />
         </a>
         <a href="https://qiita.com/nyankiti" aria-label="Qiita">
