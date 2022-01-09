@@ -8,7 +8,10 @@ const getAllPosts = async () => {
     accessToken: process.env.CONTENTFUL_DELIVERY_KEY,
   });
 
-  const res = await client.getEntries({ content_type: "post" });
+  const res = await client.getEntries({
+    content_type: "post",
+    "fields.systemTag[nin]": "giftOnly",
+  });
 
   return res.items;
 };
