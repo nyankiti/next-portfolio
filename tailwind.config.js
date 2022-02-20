@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx', './domain/**/*.tsx'],
+  content: ['./pages/**/*.tsx', './components/**/*.tsx', './domain/**/*.tsx'],
   darkMode: 'class', // or 'media' or null
   theme: {
     fontFamily: {
@@ -31,6 +31,19 @@ module.exports = {
           700: "#202125",
         },
       },
+      blueGray: {
+        50: '#f6f9f9',
+       100: '#e4f1f8',
+       200: '#c2e0f0',
+       300: '#91c0db',
+       400: '#5b9bbf',
+       500: '#4479a3',
+       600: '#385f87',
+       700: '#2d4768',
+       800: '#203049',
+       900: '#131d2f',
+    },
+
     },
   },
   variants: {

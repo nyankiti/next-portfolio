@@ -1,16 +1,17 @@
 export const siteMetadata = {
   title: "Soda Kentaro Portfolio Project",
   author: "Soda Kentaro",
-  headerTitle: "悟り事",
+  headerTitle: "Soken blog",
   description: "日々の開発のアウトプットブログ",
   language: "jp",
   siteUrl: "https://next-portfolio-nyankiti.vercel.app",
   siteRepo: "https://github.com/nyankiti/next-portfolio",
   siteLogo: "",
-  image: "/static/images/self_portrait.jpg",
+  selfPortrait: "/images/self_portrait.jpg",
   email: "nyankiti20000824@gmial.com",
-  github: "https://github.com/nyankiti/next-portfolio",
-  //   twitter: "https://twitter.com/Twitter",
+  github: "https://github.com/nyankiti/",
+  twitter: "https://twitter.com/Sokenbitya4124",
+  qiita: "https://qiita.com/nyankiti",
   locale: "jp",
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
