@@ -12,8 +12,8 @@ type Props = {
 };
 
 const Card: React.FC<Props> = ({ post }) => {
-  const { title, slug, thumbnail, description, tags } = post.fields;
-  const date = Date.parse(post.sys.updatedAt);
+  const { title, slug, thumbnail, description, tags, date } = post.fields;
+  const published_at = Date.parse(date);
 
   return (
     <article key={slug} className="p-12 my-4 bg-white rounded-lg shadow-md">
@@ -21,7 +21,9 @@ const Card: React.FC<Props> = ({ post }) => {
         <dl>
           <dt className="sr-only">Published on</dt>
           <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-            <time dateTime={post.sys.updatedAt}>{formatDate(date)}</time>
+            <time dateTime={post.sys.updatedAt}>
+              {formatDate(published_at)}
+            </time>
           </dd>
         </dl>
         <div className="space-y-5 xl:col-span-3">

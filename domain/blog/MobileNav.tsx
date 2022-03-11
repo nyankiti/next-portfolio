@@ -1,4 +1,5 @@
 import { useState } from "react";
+import clsx from "clsx";
 /* components */
 import Link from "components/elements/Link";
 /* constants */
@@ -49,9 +50,13 @@ const MobileNav = () => {
         </svg>
       </button>
       <div
-        className={`fixed w-full h-full top-24 right-0 bg-gray-200 dark:bg-gray-800 opacity-95 z-10 transform ease-in-out duration-300 ${
-          navShow ? "translate-x-0" : "translate-x-full"
-        }`}
+        style={{
+          transition: "all 0.7s ease-in-out",
+          width: navShow ? "100%" : "0",
+        }}
+        className={clsx(
+          "fixed w-full h-full top-24 right-0 bg-gray-400 dark:bg-gray-800 opacity-95 z-10"
+        )}
       >
         <button
           type="button"

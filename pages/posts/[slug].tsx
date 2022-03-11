@@ -88,8 +88,9 @@ const PostDetail: React.FC<Props> = ({ post }) => {
   // ISRによるリビルド中に表示するページ
   if (!post) return <Skeleton />;
 
-  const { mediaImage, title, tags, contents, markdown } = post.fields;
-  const date = Date.parse(post.sys.updatedAt);
+  const { mediaImage, title, tags, contents, markdown, date } = post.fields;
+  // const piblished_at = Date.parse(post.sys.updatedAt);
+  const piblished_at = Date.parse(date);
 
   return (
     <Layout>
@@ -99,7 +100,9 @@ const PostDetail: React.FC<Props> = ({ post }) => {
             <dl>
               <dt className="sr-only">Published on</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                <time dateTime={post.sys.updatedAt}>{formatDate(date)}</time>
+                <time dateTime={post.sys.updatedAt}>
+                  {formatDate(piblished_at)}
+                </time>
               </dd>
             </dl>
             <div>
@@ -110,139 +113,144 @@ const PostDetail: React.FC<Props> = ({ post }) => {
           </div>
         </header>
         <div className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700">
-          <div className="banner text-center">
-            <Image
-              src={"https:" + mediaImage.fields.file.url}
-              width={mediaImage.fields.file.details.image.width}
-              height={mediaImage.fields.file.details.image.height}
-              alt="post image"
-            />
-            <h2>{title}</h2>
-          </div>
+          {mediaImage && (
+            <div className="banner text-center">
+              <Image
+                src={"https:" + mediaImage.fields.file.url}
+                width={mediaImage.fields.file.details.image.width}
+                height={mediaImage.fields.file.details.image.height}
+                alt="post image"
+              />
+            </div>
+          )}
 
-          <div className="info">
+          <div className="info pt-3 pb-5">
             {tags.map((tag) => (
               <Tag key={tag} text={tag} />
             ))}
           </div>
 
-          <div className="method">
-            <div>
-              {markdown ? (
-                <ReactMarkdown
-                  plugins={[gfm]}
-                  rehypePlugins={[rehypeRaw]}
-                  components={{
-                    p: function renderImage({ node, children }) {
-                      if ((node.children[0] as any).tagName === "img") {
-                        const image: any = node.children[0];
-                        return (
-                          <div className="flex justify-center">
-                            <img
-                              src={image.properties.src}
-                              alt={image.properties.alt}
-                              // width="600"
-                              // height="300"
-                            />
-                          </div>
-                        );
-                      }
-                      // Return default child if it's not an image
-                      return <p>{children}</p>;
-                    },
-                    code: function renderCode({ className, children }) {
-                      // Removing "language-" because React-Markdown already added "language-"
-                      const language = className.replace("language-", "");
+          <div className="method pt-3">
+            {markdown ? (
+              <ReactMarkdown
+                plugins={[gfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                  p: function renderImage({ node, children }) {
+                    if ((node.children[0] as any).tagName === "img") {
+                      const image: any = node.children[0];
                       return (
-                        <SyntaxHighlighter
-                          style={materialDark}
-                          language={language}
+                        <div className="flex justify-center">
+                          <img
+                            src={image.properties.src}
+                            alt={image.properties.alt}
+                            // width="600"
+                            // height="300"
+                          />
+                        </div>
+                      );
+                    }
+                    // Return default child if it's not an image
+                    return <p>{children}</p>;
+                  },
+                  code: function renderCode({ className, children, inline }) {
+                    if (inline) {
+                      return (
+                        <span
+                          className="mx-1 bg-gray-800 rounded text-white whitespace-nowrap"
+                          style={{ padding: 2 }}
                         >
                           {children[0]}
-                        </SyntaxHighlighter>
+                        </span>
                       );
-                    },
-                    h1: function renderH1({ children }) {
-                      return (
-                        <>
-                          <h1 className="text-4xl font-extrabold py-3">
-                            {children}
-                          </h1>
-                          <hr className="py-1" />
-                        </>
-                      );
-                    },
-                    h2: function renderH2({ children }) {
-                      return (
-                        <>
-                          <h2 className="text-3xl font-bold py-3">
-                            {children}
-                          </h2>
-                          <hr className="py-1" />
-                        </>
-                      );
-                    },
-                    h3: function renderH3({ children }) {
-                      return (
-                        <>
-                          <h3 className="text-2xl font-bold py-2">
-                            {children}
-                          </h3>
-                          <hr className="py-1" />
-                        </>
-                      );
-                    },
-                    h4: function renderH4({ children }) {
-                      return (
-                        <>
-                          <h4 className="text-xl font-semibold py-2">
-                            {children}
-                          </h4>
-                          <hr className="py-1" />
-                        </>
-                      );
-                    },
-                    h5: function renderH5({ children }) {
-                      return (
-                        <>
-                          <h4 className="text-lg font-semibold py-2">
-                            {children}
-                          </h4>
-                          <hr className="py-1" />
-                        </>
-                      );
-                    },
-                    h6: function renderH6({ children }) {
-                      return (
-                        <>
-                          <h4 className="font-semibold py-1">{children}</h4>
-                          <hr className="py-1" />
-                        </>
-                      );
-                    },
-                    a: function renderAnchor({ children }) {
-                      return (
-                        <a className="text-blue-400 underline cursor-pointer">
+                    }
+                    const language =
+                      className && className.replace("language-", "");
+                    return (
+                      <SyntaxHighlighter
+                        style={materialDark}
+                        language={language}
+                      >
+                        {children[0]}
+                      </SyntaxHighlighter>
+                    );
+                  },
+                  h1: function renderH1({ children }) {
+                    return (
+                      <>
+                        <h1 className="text-4xl font-extrabold py-3">
                           {children}
-                        </a>
-                      );
-                    },
-                    // blockquote: function renderBlockQuote({
-                    //   className,
-                    //   children,
-                    // }) {
-                    //   console.log(children);
-                    //   return <div className="bg-gray-500">{children}</div>;
-                    // },
-                    // tableとlistのスタイルはglobals.cssに書いた
-                  }}
-                >
-                  {markdown}
-                </ReactMarkdown>
-              ) : (
-                <div>{documentToReactComponents(contents as any)}</div>
-              )}
-            </div>
+                        </h1>
+                        <hr className="py-1" />
+                      </>
+                    );
+                  },
+                  h2: function renderH2({ children }) {
+                    return (
+                      <>
+                        <h2 className="text-3xl font-bold py-3">{children}</h2>
+                        <hr className="py-1" />
+                      </>
+                    );
+                  },
+                  h3: function renderH3({ children }) {
+                    return (
+                      <>
+                        <h3 className="text-2xl font-bold py-2">{children}</h3>
+                        <hr className="py-1" />
+                      </>
+                    );
+                  },
+                  h4: function renderH4({ children }) {
+                    return (
+                      <>
+                        <h4 className="text-xl font-semibold py-2">
+                          {children}
+                        </h4>
+                        <hr className="py-1" />
+                      </>
+                    );
+                  },
+                  h5: function renderH5({ children }) {
+                    return (
+                      <>
+                        <h4 className="text-lg font-semibold py-2">
+                          {children}
+                        </h4>
+                        <hr className="py-1" />
+                      </>
+                    );
+                  },
+                  h6: function renderH6({ children }) {
+                    return (
+                      <>
+                        <h4 className="font-semibold py-1">{children}</h4>
+                        <hr className="py-1" />
+                      </>
+                    );
+                  },
+                  a: function renderAnchor({ children }) {
+                    return (
+                      <a className="text-blue-400 underline cursor-pointer">
+                        {children}
+                      </a>
+                    );
+                  },
+                  // blockquote: function renderBlockQuote({
+                  //   className,
+                  //   children,
+                  // }) {
+                  //   console.log(children);
+                  //   return <div className="bg-gray-500">{children}</div>;
+                  // },
+                  // tableとlistのスタイルはglobals.cssに書いた
+                }}
+              >
+                {markdown}
+              </ReactMarkdown>
+            ) : (
+              <div>{documentToReactComponents(contents as any)}</div>
+            )}
           </div>
         </div>
       </article>

@@ -6,6 +6,13 @@ module.exports = {
       sans: ["ui-sans-serif", "system-ui"],
       kaushan: ["Kaushan Script"],
     },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     boxShadow: {
       "custom-light": " 0 0 10px #313131",
       "custom-dark": "5px 5px 10px #0a0c0e , -5px -5px 10px #14161c",
@@ -30,20 +37,45 @@ module.exports = {
           500: "#0f1115",
           700: "#202125",
         },
+        blueGray: {
+        //   50: '#f6f9f9',
+        //  100: '#e4f1f8',
+        //  200: '#c2e0f0',
+        //  300: '#91c0db',
+        //  400: '#5b9bbf',
+        //  500: '#4479a3',
+        //  600: '#385f87',
+        //  700: '#2d4768',
+        //  800: '#203049',
+        //  900: '#131d2f',
+         50: {
+          "--tw-bg-opacity": 1,
+          "background-color": "rgba(248, 250, 252, var(--tw-bg-opacity))",
+        },
+        100 :{
+          "--tw-bg-opacity": 1,
+          "background-color": "rgba(241, 245, 249, var(--tw-bg-opacity))",
+        },
+        200: {
+          "--tw-bg-opacity": 1,
+          "background-color": "rgba(226, 232, 240, var(--tw-bg-opacity))"
+        },
+        600: {
+          "--tw-bg-opacity": 1,
+          "background-color": "rgba(71, 85, 105, var(--tw-bg-opacity))",
+        },
+        700: {
+          "--tw-bg-opacity": 1,
+          "background-color": "rgba(51, 65, 85, var(--tw-bg-opacity))",
+        },
+        800: {
+          "--tw-bg-opacity": 1,
+          "background-color": "rgba(30, 41, 59, var(--tw-bg-opacity))",
+        }
+        
+        
       },
-      blueGray: {
-        50: '#f6f9f9',
-       100: '#e4f1f8',
-       200: '#c2e0f0',
-       300: '#91c0db',
-       400: '#5b9bbf',
-       500: '#4479a3',
-       600: '#385f87',
-       700: '#2d4768',
-       800: '#203049',
-       900: '#131d2f',
-    },
-
+      },
     },
   },
   variants: {

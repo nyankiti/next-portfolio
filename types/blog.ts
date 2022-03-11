@@ -1,4 +1,4 @@
-import { EntryFields } from "contentful";
+import { EntryFields, ContentType } from "contentful";
 
 export interface Post {
   fields: {
@@ -10,6 +10,7 @@ export interface Post {
     title: string;
     description: string;
     mediaImage?: ContentfulImageObject;
+    date: string;
   };
   metadata: {
     tags: [];

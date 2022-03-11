@@ -29,20 +29,35 @@ export const ProfileCard = (props) => {
         </div>
       </div>
       <div className="text-center mt-6">
-        <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700">
+        <h3
+          className="text-xl font-semibold leading-normal mb-2"
+          style={{ color: "rgb(71,85,105)" }}
+        >
           そうけん
         </h3>
-        <div className="leading-normal mt-0 mb-2 text-blueGray-600 font-bold">
-          <FaMapMarkerAlt className="mr-2 text-lg text-blueGray-400 inline" />
+        <div
+          className="leading-normal mt-0 mb-2 font-bold"
+          style={{ color: "rgb(71,85,105)" }}
+        >
+          <FaMapMarkerAlt
+            className="mr-2 text-lg inline"
+            style={{ color: "rgb(148,163,184)" }}
+          />
           奈良県
         </div>
-        <div className="mb-2 text-blueGray-600 mt-6">
-          <FaBriefcase className="mr-2 text-lg text-blueGray-400 inline" />
+        <div className="mb-2 mt-6" style={{ color: "rgb(71,85,105)" }}>
+          <FaBriefcase
+            className="mr-2 text-lg inline"
+            style={{ color: "rgb(148,163,184)" }}
+          />
           {/* メガベンチャーの新卒エンジニア */}
           大学3年生
         </div>
-        <div className="mb-2 text-blueGray-600">
-          <FaUniversity className="mr-2 text-lg text-blueGray-400 inline" />
+        <div className="mb-2" style={{ color: "rgb(71,85,105)" }}>
+          <FaUniversity
+            className="mr-2 inline"
+            style={{ color: "rgb(148,163,184)" }}
+          />
           大阪市立大学
         </div>
       </div>
@@ -50,26 +65,32 @@ export const ProfileCard = (props) => {
         <Link href={siteMetadata.github}>
           <FaGithub
             size={28}
-            className="mx-4 text-lg text-blueGray-400 inline"
+            className="mx-4 text-lg inline"
+            style={{ color: "rgb(148,163,184)" }}
           />
         </Link>
         <Link href={siteMetadata.twitter}>
           <FaTwitter
             size={28}
-            className="mx-4 text-lg text-blueGray-400 inline"
+            className="mx-4 text-lg inline"
+            style={{ color: "rgb(148,163,184)" }}
           />
         </Link>
         <Link href="/portflio">
           <ImProfile
             size={28}
-            className="mx-4 text-lg text-blueGray-400 inline"
+            className="mx-4 text-lg inline"
+            style={{ color: "rgb(148,163,184)" }}
           />
         </Link>
         <Link href={siteMetadata.qiita}>
           <SiQiita
             size={28}
-            className="mx-4 text-lg text-blueGray-400 inline border-2 rounded-md"
-            style={{ borderColor: "rgb(148,163,184)" }}
+            className="mx-4 text-lg inline border-2 rounded-md"
+            style={{
+              borderColor: "rgb(148,163,184)",
+              color: "rgb(148,163,184)",
+            }}
           />
         </Link>
       </div>

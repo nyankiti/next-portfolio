@@ -1,4 +1,6 @@
 import React from "react";
+import { useRouter } from "next/router";
+import clsx from "clsx";
 /* datas */
 import { siteMetadata } from "constants/siteMetaData";
 import headerNavLinks from "constants/headerNavLink";
@@ -9,44 +11,43 @@ import ProfileCard from "./ProfileCard";
 import Footer from "components/layouts/Footer";
 
 const Layout = ({ children }) => {
+  const router = useRouter();
   return (
     <>
+      {/* 以下のcdnはいつか取り除きたい */}
       <link
         rel="stylesheet"
         href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
       />
-      <link
-        rel="stylesheet"
-        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-      />
-      <header className="flex items-center justify-between py-6 bg-white shadow-md">
-        <div className="px-8 md:px-20">
-          <Link href="/" aria-label="Tailwind CSS Blog">
+      <header className="flex justify-center py-6 bg-white shadow-md">
+        <div className="flex items-center justify-between w-full max-w-6xl">
+          <div className="px-8 md:px-20">
             <div className="flex items-center justify-between">
-              {typeof siteMetadata.headerTitle === "string" ? (
-                <div className="hidden h-6 text-2xl font-semibold sm:block">
+              <Link href="/">
+                <div className="h-6 text-2xl font-semibold text-blue-500">
                   {siteMetadata.headerTitle}
                 </div>
-              ) : (
-                siteMetadata.headerTitle
-              )}
-            </div>
-          </Link>
-        </div>
-        <div className="flex items-center text-base leading-5 px-4 md:px-12">
-          <div className="hidden sm:block">
-            {headerNavLinks.map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
-              >
-                {link.title}
               </Link>
-            ))}
+            </div>
           </div>
-          <MobileNav />
+          <div className="flex items-center text-base leading-5 px-4 md:px-12">
+            <div className="hidden sm:block">
+              {headerNavLinks.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.href}
+                  className={clsx(
+                    "p-1 font-medium sm:p-4 dark:text-gray-100 hover:text-blue-500 hover:underline",
+                    router.asPath == link.href && "text-blue-500"
+                  )}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
+        <MobileNav />
       </header>
       <div
         className="flex justify-center w-full mx-auto"

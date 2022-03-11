@@ -10,6 +10,8 @@ const getAllPosts = async () => {
 
   const res = await client.getEntries({
     content_type: "post",
+    order: "-fields.date",
+    // gift onlyの記事を含めない
     "fields.systemTag[nin]": "giftOnly",
   });
 
